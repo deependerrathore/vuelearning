@@ -12,11 +12,8 @@ new Vue({
     },
     watch: {
         //watching content changes
-        content:{
-            handler(newVal , oldVal){
-                console.log('new Note: ' ,newVal, 'old Note' , oldVal)
-            },
-            immediate:true
+        content(newVal , oldVal){
+            console.log('new Note: ' ,newVal, 'old Note' , oldVal)
         },
     },
 })
