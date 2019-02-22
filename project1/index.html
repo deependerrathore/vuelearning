@@ -16,7 +16,7 @@
     <div id="notebook">
         <aside class="side-bar">
             <div class="toolbar">
-                <button v-bind:title="notes.length + ' items already exists.'" v-on:click="addNote"><i class="fas fa-plus"></i></button>
+                <button v-bind:title="addButtonTitle" v-on:click="addNote"><i class="fas fa-plus"></i></button>
             </div>
         </aside>
         <section class="main">

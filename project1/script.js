@@ -9,6 +9,9 @@ new Vue({
     computed: {
         notePreview(){
             return marked(this.content);
+        },
+        addButtonTitle(){
+            return this.notes.length + ' note(s) already exists'
         }
     },
     watch: {
