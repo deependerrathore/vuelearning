@@ -10,12 +10,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <div class="root">
-        <p>Hello World</p>
+    <div id="root">
+        {{message}}
     </div>
 
     <script>
-        console.log('Vue is now installed',Vue.version);
+        var app = new Vue({
+            el: "#root",
+            data(){
+                return {
+                    message: "Welcome Vue.js!"
+                }
+            }
+        })
     </script>
     
 </body>
