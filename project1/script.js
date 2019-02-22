@@ -18,7 +18,11 @@ new Vue({
         }
     },
     watch:{
-        notes: 'saveNotes'
+        notes:{
+            handler: 'saveNotes',
+            deep: true,
+        }
+
     },
     methods: {
         reportOperation(optName){
@@ -29,7 +33,7 @@ new Vue({
             const note = {
                 id:String(time),
                 title: 'New Note ' + (this.notes.length + 1),
-                content: '**Hi** This notebook is using [github marked.js](https://markedjs.org)',
+                content: '**Hi** This notebook is using [marked.js](https://markedjs.org)',
                 created: time,
                 favorite : false
             }
