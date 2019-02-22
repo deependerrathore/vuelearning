@@ -2,28 +2,22 @@ new Vue({
     el: "#notebook",
     data(){
         return {
-            content: localStorage.getItem('content') || 'You can write in **markdown**',
-            notes: []
+            notes: [],
+            selectedID: null
         }
     },
     computed: {
         notePreview(){
-            return marked(this.content);
+            return this.selectedNote ? marked(this.selectedNote.content) : '';
         },
         addButtonTitle(){
             return this.notes.length + ' note(s) already exists'
+        },
+        selectedNote(){
+            return this.notes.find(note => note.id === this.selectedID);
         }
     },
-    watch: {
-        //watching content changes
-        content:'saveNote'
-    },
     methods: {
-        saveNote(val){
-            console.log('Saving note: ' ,this.content );
-            localStorage.setItem('content',this.content);
-            this.reportOperation('Saving');
-        },
         reportOperation(optName){
             console.log('The ' , optName, ' operation completed!');
         },
@@ -37,6 +31,9 @@ new Vue({
                 favorite : false
             }
             this.notes.push(note);
+        },
+        selectNote(note){
+            this.selectedID = note.id;
         }
     }
 })

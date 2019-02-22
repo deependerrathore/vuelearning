@@ -16,16 +16,18 @@
     <div id="notebook">
         <aside class="side-bar">
             <div class="toolbar">
-                <button v-bind:title="addButtonTitle" v-on:click="addNote"><i class="fas fa-plus"></i></button>
+                <button v-bind:title="addButtonTitle" v-on:click="addNote"><i class="fas fa-plus"></i>Add Note</button>
             </div>
             <div class="notes">
-                <div v-for="note in notes">{{note.title}}</div>
+                <div v-for="note of notes" @click="selectNote(note)"
+                v-bind:class="{selected: note === selectedNote}"
+                >{{note.title}}</div>
             </div>
         </aside>
-        <section class="main">
-            <textarea v-model="content" cols="100" rows="10"></textarea>
+        <section class="main" v-if="selectedNote">
+            <textarea v-model="selectedNote.content"></textarea>        
         </section>
-        <aside class="preview" v-html="notePreview">
+        <aside class="preview" v-if="selectedNote" v-html="notePreview">
         </aside>
     </div>
     <script src="script.js"></script>
