@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Project Setup</title>
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="root">
+        {{message}} <!-- interpolation using the “Mustache” syntax (double curly braces): -->
+        <br>
+        <input type="text" v-model="message"/>
+    </div>
+
+    <script>
+        var app = new Vue({
+            name: "MyApp",
+            data(){
+                return {
+                    message: "Welcome Vue.js!"
+                }
+            }
+        })
+        app.$mount("#root");
+    </script>
+    
+</body>
+</html>
