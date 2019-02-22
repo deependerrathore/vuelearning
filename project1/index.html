@@ -18,6 +18,9 @@
             <div class="toolbar">
                 <button v-bind:title="addButtonTitle" v-on:click="addNote"><i class="fas fa-plus"></i></button>
             </div>
+            <div class="notes">
+                <div v-for="note in notes">{{note.title}}</div>
+            </div>
         </aside>
         <section class="main">
             <textarea v-model="content" cols="100" rows="10"></textarea>
