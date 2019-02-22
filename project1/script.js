@@ -24,4 +24,8 @@ new Vue({
             console.log('The ' , optName, ' operation completed!');
         }
     },
+    created(){
+        this.content = localStorage.getItem('content') || 'You can write in **markdown**';
+    }
 })
+
