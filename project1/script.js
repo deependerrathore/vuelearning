@@ -16,6 +16,7 @@ new Vue({
             handler(newVal , oldVal){
                 console.log('new Note: ' ,newVal, 'old Note' , oldVal)
             },
+            immediate:true
         },
     },
 })
