@@ -2,7 +2,7 @@ new Vue({
     el: "#notebook",
     data(){
         return {
-            notes: [],
+            notes: JSON.parse(localStorage.getItem('notes')) || [],
             selectedID: null
         }
     },
