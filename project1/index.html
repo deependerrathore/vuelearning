@@ -24,11 +24,13 @@
                 >{{note.title}}</div>
             </div>
         </aside>
-        <section class="main" v-if="selectedNote">
-            <textarea v-model="selectedNote.content"></textarea>        
-        </section>
-        <aside class="preview" v-if="selectedNote" v-html="notePreview">
-        </aside>
+        <template  v-if="selectedNote">
+            <section class="main">
+                <textarea v-model="selectedNote.content"></textarea>        
+            </section>
+            <aside class="preview" v-html="notePreview">
+            </aside>
+        </template>
     </div>
     <script src="script.js"></script>
 </body>

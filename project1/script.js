@@ -17,6 +17,9 @@ new Vue({
             return this.notes.find(note => note.id === this.selectedID);
         }
     },
+    watch:{
+        notes: 'saveNotes'
+    },
     methods: {
         reportOperation(optName){
             console.log('The ' , optName, ' operation completed!');
@@ -34,6 +37,10 @@ new Vue({
         },
         selectNote(note){
             this.selectedID = note.id;
+        },
+        saveNotes(){
+            localStorage.setItem('notes',JSON.stringify(this.notes));
+            console.log('Notes saved: ' ,new Date());
         }
     }
 })
