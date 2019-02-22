@@ -12,9 +12,14 @@ new Vue({
     },
     watch: {
         //watching content changes
-        content(newVal , oldVal){
-            console.log('new Note: ' ,newVal, 'old Note' , oldVal)
-            localStorage.setItem('content',newVal);
+        content:{
+            handler:'saveNote'
         },
+    },
+    methods: {
+        saveNote(val){
+            console.log('Saving : ' ,val );
+            localStorage.setItem('content',val);
+        }
     },
 })
