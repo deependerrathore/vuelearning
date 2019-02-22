@@ -14,6 +14,7 @@ new Vue({
         //watching content changes
         content(newVal , oldVal){
             console.log('new Note: ' ,newVal, 'old Note' , oldVal)
+            localStorage.setItem('content',newVal);
         },
     },
 })
