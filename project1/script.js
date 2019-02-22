@@ -12,9 +12,7 @@ new Vue({
     },
     watch: {
         //watching content changes
-        content:{
-            handler:'saveNote'
-        },
+        content:'saveNote'
     },
     methods: {
         saveNote(val){
