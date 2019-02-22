@@ -16,8 +16,12 @@ new Vue({
     },
     methods: {
         saveNote(val){
-            console.log('Saving : ' ,val );
+            console.log('Saving note: ' ,val );
             localStorage.setItem('content',val);
+            this.reportOperation('Saving');
+        },
+        reportOperation(optName){
+            console.log('The ' , optName, ' operation completed!');
         }
     },
 })
