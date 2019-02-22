@@ -2,7 +2,7 @@ new Vue({
     el: "#notebook",
     data(){
         return {
-            content: "This is the conent",
+            content: localStorage.getItem('content') || 'You can write in **markdown**',
         }
     },
     computed: {
@@ -23,9 +23,6 @@ new Vue({
         reportOperation(optName){
             console.log('The ' , optName, ' operation completed!');
         }
-    },
-    created(){
-        this.content = localStorage.getItem('content') || 'You can write in **markdown**';
     }
 })
 
