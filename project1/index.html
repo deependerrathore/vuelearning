@@ -16,7 +16,7 @@
         <section class="main">
             <textarea v-model="content" cols="100" rows="10"></textarea>
         </section>
-        <aside class="preview">
+        <aside class="preview" v-html="notePreview">
         </aside>
     </div>
     <script src="script.js"></script>
