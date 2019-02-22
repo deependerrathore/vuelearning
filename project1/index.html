@@ -9,12 +9,15 @@
     <title>My Notebook</title>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.1/marked.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <div id="notebook">
         <section class="main">
             <textarea v-model="content" cols="100" rows="10"></textarea>
         </section>
+        <aside class="preview">
+        </aside>
     </div>
     <script src="script.js"></script>
 </body>
