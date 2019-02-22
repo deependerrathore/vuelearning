@@ -10,4 +10,12 @@ new Vue({
             return marked(this.content);
         }
     },
+    watch: {
+        //watching content changes
+        content:{
+            handler(newVal , oldVal){
+                console.log('new Note: ' ,newVal, 'old Note' , oldVal)
+            },
+        },
+    },
 })
