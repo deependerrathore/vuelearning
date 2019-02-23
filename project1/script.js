@@ -1,6 +1,6 @@
 Vue.filter('date', time => moment(time)
  .format('DD/MM/YY, HH:mm'));
- 
+
 new Vue({
     el: "#notebook",
     data(){
@@ -23,6 +23,26 @@ new Vue({
             return this.notes.slice()
             .sort((a,b)=>a.created - b.created)
             .sort((a,b) => (a.favorite === b.favorite) ? 0 : a.favorite ? -1 : 1);
+        },
+        linesCount(){
+            return this.selectedNote.content.split(/\r\n|\r|\n/).length
+        },
+        wordsCount(){
+            var s = this.selectedNote.content;
+            //turn new line into white space
+            s = s.replace(/\n/g,'');
+            // Exclude start and end white-spaces
+            s = s.replace(/(^\s*)|(\s*$)/gi, '')
+            // Turn 2 or more duplicate white-spaces into 1
+            s = s.replace(/\s\s+/gi, ' ')
+            // Return the number of spaces
+            return s.split(' ').length
+
+        },
+        charactersCount(){
+            if (this.selectedNote) {
+            return this.selectedNote.content.split('').length
+            }
         }
     },
     watch:{
