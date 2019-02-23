@@ -28,7 +28,7 @@
                     Note List
                     </div>
                     <ul class="list-group list-group-flush">
-                    <li class="list-group-item" v-for="note of notes" @click="selectNote(note)">{{note.title}}</li>
+                    <li class="list-group-item" v-for="note of sortNotes" @click="selectNote(note)">{{note.title}} <i v-if="note.favorite" class="fas fa-star"></i></li>
                     </ul>
                 </div>
                 

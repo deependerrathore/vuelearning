@@ -15,6 +15,11 @@ new Vue({
         },
         selectedNote(){
             return this.notes.find(note => note.id === this.selectedID);
+        },
+        sortNotes(){
+            return this.notes.slice()
+            .sort((a,b)=>a.created - b.created)
+            .sort((a,b) => (a.favorite === b.favorite) ? 0 : a.favorite ? -1 : 1);
         }
     },
     watch:{
@@ -58,8 +63,9 @@ new Vue({
             }
         },
         favoriteNote(){
-            this.selectedNote.favorite = !this.selectedNote.favorite;
+            this.selectedNote.favorite ^= true;
         }
+
     }
 })
 
