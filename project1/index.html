@@ -18,51 +18,67 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <div id="notebook">
-        <aside class="side-bar">
-            <div class="toolbar">
-                <button class="btn btn-primary" v-bind:title="addButtonTitle" v-on:click="addNote"><i class="fas fa-plus"></i>Add Note</button>
-            </div>
-            <div class="notes">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                    Note List
+    <div id="notebook" class="container-fluid">
+        <div class="row">
+            <div class="col col-md-2 note-list">
+                <aside class="side-bar">
+                    <div class="toolbar">
+                        <button class="btn btn-link btn-add-note" v-bind:title="addButtonTitle" v-on:click="addNote"><i class="fas fa-plus"></i>  Add</button>
                     </div>
-                    <ul class="list-group list-group-flush">
-                    <li class="list-group-item" v-for="note of sortNotes" @click="selectNote(note)">{{note.title}} <i v-if="note.favorite" class="fas fa-star"></i></li>
-                    </ul>
-                </div>
-                
+                    <div class="notes">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" v-for="note of sortNotes" @click="selectNote(note)">{{note.title}}
+                            <span class="float-right"><i v-if="note.favorite" class="fas fa-star"></i></span></li>
+                        </ul>
+                    </div>
+                </aside>
             </div>
-        </aside>
-        <template  v-if="selectedNote">
-            <section class="main">
-                <input type="text" placeholder="Note Title!" v-model="selectedNote.title"/>
-                <button class="btn btn-light" title="Make it Favorite" v-on:click="favoriteNote"><i :class="selectedNote.favorite ? 'fas': 'far'" class="fa-star"></i>Favorite</button>
-                <button class="btn btn-danger" title="Delete Note" v-on:click="removeNote"><i class="fas fa-trash"></i>Delete Note</button>
-                <textarea v-model="selectedNote.content"></textarea>   
-                <div class="toolbar status-bar">
-                    <span class="date">
-                        <span><label class="label">Created</label></span>
-                        <span><label class="value">{{selectedNote.created | date}}</label></span>
-                    </span>
-                    <span class="lines">
-                    <span class="label">Lines</span>
-                    <span class="value">{{ linesCount }}</span>
-                    </span>
-                    <span class="words">
-                    <span class="label">Words</span>
-                    <span class="value">{{ wordsCount }}</span>
-                    </span>
-                    <span class="characters">
-                    <span class="label">Characters</span>
-                    <span class="value">{{ charactersCount }}</span>
-                    </span>
-                </div>     
-            </section>
-            <aside class="preview" v-html="notePreview">
-            </aside>
-        </template>
+            <div class="col">
+                <div class="row">
+                    <template  v-if="selectedNote">
+                        <div class="col">
+                            <section class="main">
+                                <div class="form-group">
+                                    <label for="title">Note Title</label>
+                                    <button class="btn btn-link float-right" title="Make it Favorite" v-on:click="favoriteNote"><i :class="selectedNote.favorite ? 'fas': 'far'" class="fa-star"></i></button>
+                                    <button class="btn btn-link float-right" title="Delete Note" v-on:click="removeNote"><i class="fas fa-trash"></i></button>
+                                    <input type="text" class="form-control" v-model="selectedNote.title" id="title" aria-describedby="title" placeholder="Note Title">
+                                    <small id="title" class="form-text text-muted">Enter the title of your note. Your can change it any time.</small>
+                                    
+                                </div>
+                                
+                                <textarea v-model="selectedNote.content"></textarea>   
+                                <div class="status-bar">
+                                    <span class="date">
+                                        <span><label class="label">Created</label></span>
+                                        <span><label class="value">{{selectedNote.created | date}}</label></span>
+                                    </span>
+                                    <span class="lines">
+                                    <span class="label">Lines</span>
+                                    <span class="value">{{ linesCount }}</span>
+                                    </span>
+                                    <span class="words">
+                                    <span class="label">Words</span>
+                                    <span class="value">{{ wordsCount }}</span>
+                                    </span>
+                                    <span class="characters">
+                                    <span class="label">Characters</span>
+                                    <span class="value">{{ charactersCount }}</span>
+                                    </span>
+                                </div>     
+                            </section>
+                        </div>
+                        <div class="col preview-main">
+                            <h1 class="preview-label">Your Note</h1>
+                            <aside v-html="notePreview"></aside>
+                        </div>
+                        
+                    </template>
+                </div>
+            </div>
+                
+        </div>
+        
     </div>
     <script src="script.js"></script>
 </body>
