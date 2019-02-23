@@ -1,3 +1,6 @@
+Vue.filter('date', time => moment(time)
+ .format('DD/MM/YY, HH:mm'));
+ 
 new Vue({
     el: "#notebook",
     data(){
@@ -68,4 +71,5 @@ new Vue({
 
     }
 })
+
 
