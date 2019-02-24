@@ -8,5 +8,10 @@ new Vue({
     {{worldRatio}}
     </div>`,
     data:state,
-
+    mounted(){
+        console.log(this.$data === state);
+        console.log(this.worldRatio)
+        console.log(state.worldRatio)
+        console.log(this.$data.worldRatio)
+    }
 })
