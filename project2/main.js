@@ -1,3 +1,6 @@
+window.addEventListener('resize',()=>{
+    state.worldRatio = getWorldRatio();
+})
 new Vue({
     name:"game",
     el:"#app",
