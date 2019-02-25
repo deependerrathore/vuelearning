@@ -10,7 +10,7 @@ var state = {
   // World
   worldRatio: getWorldRatio(),
   // Game
-  trun:1,
+  turn:1,
   players:[
     {
     name:'Anne of Cleves',
