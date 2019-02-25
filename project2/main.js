@@ -5,7 +5,7 @@ new Vue({
     name:"game",
     el:"#app",
     template:`<div id="#app">
-    {{worldRatio}}
+        <top-bar/>
     </div>`,
     data:state,
     mounted(){
