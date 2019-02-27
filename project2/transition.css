@@ -1,9 +1,9 @@
-.hand.v-enter-active,
-.hand.v-leave-active{
+.hand.fade-enter-active,
+.hand.fade-leave-active{
     transition: opacity 1s;
 }
 
-.hand.v-enter,
-.hand.v-leave-to{
+.hand.fade-enter,
+.hand.fade-leave-to{
     opacity: 0;
 }
