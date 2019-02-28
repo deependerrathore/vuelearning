@@ -30,8 +30,13 @@ Vue.component('hand',{
     props:['cards'],
     template:`<div class="hand">
         <div class="wrapper"
-            <card v-for="card of cards" :def="card.def"/>
+            <card v-for="card of cards" :def="card.def" @play="handlePlay(card)"/>
         </div>
     </div>`,
+    methods: {
+        handlePlay(card){
+            this.$emit('card-play',card)
+        },
+    },
 })
 

@@ -7,7 +7,7 @@ new Vue({
     template:`<div id="#app">
         <top-bar :turn="turn" :current-player-index="currentPlayerIndex" :players="players" />
         <transition name="hand">
-        <hand :cards="testHand" v-if="!activeOverlay"/>
+        <hand :cards="testHand" v-if="!activeOverlay" @card-play="testPlayCard"/>
         </transition>
         </div>`,
     data:state,
@@ -17,9 +17,6 @@ new Vue({
         },
     },
     methods: {
-        handlePlay(){
-            console.log('you played a card!');
-        },
         createTestHand(){
             const cards = [];
             //get the possible ids
@@ -45,13 +42,18 @@ new Vue({
                 //Definition object
                 def: cards[randomId]
             }
+        },
+        testPlayCard(card){
+            //remoe the card from player hand
+            const index = this.testHand.indexOf(card);
+            this.testHand.splice(index,1);
         }
     },
     mounted(){
-        console.log(this.$data === state);
-        console.log(this.worldRatio)
-        console.log(state.worldRatio)
-        console.log(this.$data.worldRatio)
+        // console.log(this.$data === state);
+        // console.log(this.worldRatio)
+        // console.log(state.worldRatio)
+        // console.log(this.$data.worldRatio)
     },
     created(){
         this.testHand = this.createTestHand();
