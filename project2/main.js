@@ -1,13 +1,14 @@
 window.addEventListener('resize',()=>{
     state.worldRatio = getWorldRatio();
-})
+});
+
 new Vue({
     name:"game",
     el:"#app",
     template:`<div id="#app">
         <top-bar :turn="turn" :current-player-index="currentPlayerIndex" :players="players" />
         <transition name="hand">
-        <hand :cards="testHand" v-if="!activeOverlay" @card-play="testPlayCard"/>
+            <hand :cards="testHand" v-if="!activeOverlay" @card-play="testPlayCard"/>
         </transition>
         </div>`,
     data:state,
@@ -44,6 +45,7 @@ new Vue({
             }
         },
         testPlayCard(card){
+            console.log("deepn")
             //remoe the card from player hand
             const index = this.testHand.indexOf(card);
             this.testHand.splice(index,1);
