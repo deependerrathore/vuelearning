@@ -30,9 +30,9 @@ Vue.component('hand',{
     props:['cards'],
     template:`<div class="hand">
     <div class="wrapper">
-    <div class="cards">
-    <card v-for="card of cards" :def="card.def" @play="handlePlay(card)"/>
-    </div>
+    <transition-group name="card" tag="div" class="cards">
+    <card v-for="card of cards" :def="card.def" :key="card.uid" @play="handlePlay(card)"/>
+    </transition-group>
     </div>
     </div>`,
     methods:{
