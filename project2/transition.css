@@ -28,3 +28,7 @@
 .hand-leave-to .card{
     margin: 0 -100px;
 }
+
+.hand{
+    pointer-events: all;
+}

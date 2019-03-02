@@ -7,7 +7,7 @@ new Vue({
     template:`<div id="#app">
         <top-bar :turn="turn" :current-player-index="currentPlayerIndex" :players="players" />
         <transition name="hand">
-        <hand :cards="testHand" v-if="!activeOverlay"/>
+            <hand v-if="!activeOverlay" :cards="testHand" @card-play="handlePlay" />
         </transition>
         </div>`,
     data:state,
