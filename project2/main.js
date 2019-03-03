@@ -8,7 +8,14 @@ new Vue({
     template:`<div id="#app">
         <top-bar :turn="turn" :current-player-index="currentPlayerIndex" :players="players" />
         <transition name="hand">
-            <overlay>Hello world</overlay>
+            <overlay v-if="activeOverlay">
+                <overlay-content-player-turn v-if="activeOverlay === 'player-turn'"
+                :player="currentPlayer"/>
+                <overlay-content-last-play v-else-if="activeOverlay === 'last-play'"
+                :opponent="currentOpponent"/>
+                <overlay-content-game-over v-else-if="activeOverlay === 'game-over'"
+                :players="players"/>
+            </overlay>
             <hand :cards="testHand" v-if="!activeOverlay" @card-play="testPlayCard"/>
         </transition>
         </div>`,
@@ -17,6 +24,16 @@ new Vue({
         testCard(){
             return cards.archers
         },
+        currentPlayer(){
+            return state.players[state.currentPlayerIndex]
+          },
+        currentOpponentId(){
+            return state.currentPlayerIndex === 0 ? 1 : 0;
+          },
+        currentOpponent(){
+            console.log
+            return state.players[this.currentOpponentId]
+          }
     },
     methods: {
         createTestHand(){

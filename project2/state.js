@@ -13,13 +13,28 @@ var state = {
   turn:1,
   players:[
     {
-    name:'Anne of Cleves',
+      name:'Anne of Cleves',
+      food: 10,
+      health:10,
+      skipTurn:false,
+      skipedTurn:false,
+      hand:[],
+      lastPlayedCardId: 'catapult',
+      dead:false
     },
     {
       name: 'William the Bald',
+      food: 10,
+      health:10,
+      skipTurn:false,
+      skipedTurn:false,
+      hand:[],
+      lastPlayedCardId: 'farm',
+      dead:false
     }
   ],
   currentPlayerIndex: Math.round(Math.random()),
   testHand: [],
-  activeOverlay:null
+  activeOverlay:null,
+  
 }
