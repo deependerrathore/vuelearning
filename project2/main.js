@@ -8,6 +8,7 @@ new Vue({
     template:`<div id="#app">
         <top-bar :turn="turn" :current-player-index="currentPlayerIndex" :players="players" />
         <transition name="hand">
+            <overlay>Hello world</overlay>
             <hand :cards="testHand" v-if="!activeOverlay" @card-play="testPlayCard"/>
         </transition>
         </div>`,
@@ -45,7 +46,6 @@ new Vue({
             }
         },
         testPlayCard(card){
-            console.log("deepn")
             //remoe the card from player hand
             const index = this.testHand.indexOf(card);
             this.testHand.splice(index,1);
