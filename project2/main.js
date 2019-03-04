@@ -2,17 +2,36 @@ window.addEventListener('resize',()=>{
     state.worldRatio = getWorldRatio();
 });
 
+// Tween.js
+requestAnimationFrame(animate);
+
+function animate(time) {
+  requestAnimationFrame(animate);
+  TWEEN.update(time);
+}
+
 new Vue({
     name:"game",
     el:"#app",
     template:`<div id="#app">
         <top-bar :turn="turn" :current-player-index="currentPlayerIndex" :players="players" />
+        
+        <div class="world">
+            <castle v-for="(player,index) in players" :player="player" :index="index"/>
+            <div class="land"/>
+            <div class="clouds">
+                <cloud v-for="index in 10" :type="(index - 1) % 5 + 1" />
+            </div>
+        </div>
+
         <transition name="hand">
         <hand :cards="testHand" v-if="!activeOverlay" @card-play="testPlayCard"/>
         </transition>
+
         <transition name="fade">
         <div class="overlay-background" v-if="activeOverlay" />
         </transition>
+
         <transition name="zoom">
             <overlay v-if="activeOverlay" :key="activeOverlay">
             <component :is="'overlay-content-' + activeOverlay"
