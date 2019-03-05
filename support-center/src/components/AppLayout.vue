@@ -1,18 +1,13 @@
 <template>
-    <div>
-        <NavMenu />
-<v-container>
-        <div>
-            <v-card>
-            <v-responsive>
-                <v-card-text>
-                    <router-view/>
-                </v-card-text>
-            </v-responsive>
-            </v-card>
-        </div>
-    </v-container>
-    </div>
+    <v-app>
+        <head>
+            <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+        </head>
+        <NavMenu/>
+        <v-content>
+            <router-view/>
+        </v-content>
+    </v-app>
     
 </template>
 
