@@ -1,16 +1,23 @@
 <template>
     <div class="app-layout">
-        <header class="header">
-            <div><img src="../assets/logo.svg" class="img">
-            <div>My Shirt Shop</div>
-            </div>
-        </header>
-
+        <head>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+        </head>
+        <NavMenu />
         <router-view/>
     </div>
 </template>
+
+<script>
+import NavMenu from './NavMenu.vue';
+export default{
+    components:{
+        NavMenu,
+    },
+}
+</script>
 <style lang="stylus">
-@import '../style/main';
+@import '~vuetify/src/stylus/main' // Ensure you are using stylus-loader
 </style>
 
 <style lang="stylus" scoped>
