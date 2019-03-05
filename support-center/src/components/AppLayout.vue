@@ -1,11 +1,19 @@
 <template>
-    <div class="app-layout">
-        <head>
-        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
-        </head>
+    <div>
         <NavMenu />
-        <router-view/>
+<v-container>
+        <div>
+            <v-card>
+            <v-responsive>
+                <v-card-text>
+                    <router-view/>
+                </v-card-text>
+            </v-responsive>
+            </v-card>
+        </div>
+    </v-container>
     </div>
+    
 </template>
 
 <script>
@@ -18,13 +26,4 @@ export default{
 </script>
 <style lang="stylus">
 @import '~vuetify/src/stylus/main' // Ensure you are using stylus-loader
-</style>
-
-<style lang="stylus" scoped>
-.header{
-    .img{
-        width: 64px;
-        height 64px;
-    }
-}
 </style>

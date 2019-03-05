@@ -1,5 +1,38 @@
 <template>
-    <main class="faq">
+    <main>
         <h1>Frequently Asked Questions</h1>
+        <div class="error" v-if="error">
+        Can't load the questions
+        </div>
+        <section class="list">
+            <article v-for="question of questions">
+                <h2>{{question.title}}</h2>
+                <p v-html="question.content"></p>
+            </article>
+        </section>   
     </main>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+            questions: [],
+            error: null,
+        }
+    },created(){
+        fetch('http://localhost:3000/questions')
+        .then(response =>{
+            if(response.ok){
+                return response.json()
+            }else{
+                return Promise.reject('error')
+            }
+        }).then(result=>{
+            this.questions = result
+        }).catch(e=>{
+            this.error = e
+        })
+    }
+}
+</script>
