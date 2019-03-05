@@ -24,25 +24,14 @@ export default {
         FAQItem,
         Loading
     },
-    created(){
-        this.loading= true;
-        fetch('http://localhost:3000/questions')
-        .then(response =>{
-            
-            if(response.ok){
-                return response.json()
-            }else{
-                return Promise.reject('error')
-            }
-        }).then(result=>{
-            this.questions = result
-            this.loading= false;
-
-        }).catch(e=>{
-            this.error = e
-            this.loading= false;
-
-        })
+    async created(){
+        this.loading = true;
+        try{
+            this.questions = await this.$fetch('questions');
+        }catch(e){
+            this.error = e;
+        }
+        this.loading = false;
     }
 }
 </script>

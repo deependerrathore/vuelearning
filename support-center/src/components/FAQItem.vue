@@ -1,14 +1,14 @@
 <template>
-  <v-expansion-panel popout>
+  <v-expansion-panel>
     <v-expansion-panel-content
       v-for="question of questions"
       :key="question._id"
     >
       <template v-slot:header>
-        <div>{{question.title}}</div>
+        <div dark>{{question.title}}</div>
       </template>
       <v-card>
-        <v-card-text>{{question.content}}</v-card-text>
+        <v-card-text class="blue-grey lighten-1">{{question.content}}</v-card-text>
       </v-card>
     </v-expansion-panel-content>
   </v-expansion-panel>

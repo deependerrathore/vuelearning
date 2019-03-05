@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar class="lime text--black">
+    <v-toolbar class="green text--black">
         <v-toolbar-title caps>MY SHOPPING CART</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items>
