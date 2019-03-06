@@ -4,7 +4,7 @@
         <v-alert icon="warning" dismissible :value="true" type="error" v-if="error">
             Can't found the data you are looking for!
         </v-alert>
-        <Loading v-if="loading"/>
+        <Loading v-if="remoteDataBusy"/>
         <FAQItem :questions="questionList"></FAQItem>
     </main>
 </template>

@@ -13,11 +13,18 @@ export default function(resources){
         },
         methods: {
             async fetchResource(key,url){
+                this.$data.remoteDataLoading++
                 try{
                     this.$data[key] = await this.$fetch(url)
                 }catch(e){
                     console.error(e)
                 }
+                this.$data.remoteDataLoading--
+            }
+        },
+        computed: {
+            remoteDataBusy(){
+                return this.$data.remoteDataLoading !== 0
             }
         },
         created() {
