@@ -12,7 +12,13 @@
 <script>
 import FAQItem from './FAQItem.vue';
 import Loading from './Loading.vue';
+
+import RemoteData from '../mixins/RemoteData';
+
 export default {
+    mixins:[
+        RemoteData,
+    ],
     data(){
         return {
             questions: [],
