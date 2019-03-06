@@ -1,7 +1,7 @@
 <template>
     <main>
         <h1  class="display-2">Frequently Asked Questions</h1>
-        <v-alert icon="warning" dismissible :value="true" type="error" v-if="error">
+        <v-alert icon="warning" dismissible :value="true" type="error" v-if="hasRemoteErrors">
             Can't found the data you are looking for!
         </v-alert>
         <Loading v-if="remoteDataBusy"/>

@@ -4,9 +4,11 @@ export default function(resources){
             let initData = {
                 remoteDataLoading: 0,
             }
+            initData.remoteErrors={}
             //initializing the data property
             for(const key in resources){
                 initData[key] = null
+                initData.remoteErrors[key] = null
             }
             
             return initData;
@@ -14,10 +16,11 @@ export default function(resources){
         methods: {
             async fetchResource(key,url){
                 this.$data.remoteDataLoading++
+                this.$data.remoteErrors[key] = null
                 try{
                     this.$data[key] = await this.$fetch(url)
                 }catch(e){
-                    console.error(e)
+                    this.$data.remoteErrors[key] = e
                 }
                 this.$data.remoteDataLoading--
             }
@@ -25,6 +28,11 @@ export default function(resources){
         computed: {
             remoteDataBusy(){
                 return this.$data.remoteDataLoading !== 0
+            },
+            hasRemoteErrors(){
+                return Object.keys(this.$data.remoteErrors).some(
+                    key=>this.$data.remoteErrors[key]
+                )
             }
         },
         created() {
