@@ -5,7 +5,7 @@
             Can't found the data you are looking for!
         </v-alert>
         <Loading v-if="loading"/>
-        <FAQItem :questions="questions"></FAQItem>
+        <FAQItem :questions="questionList"></FAQItem>
     </main>
 </template>
 
@@ -17,7 +17,9 @@ import RemoteData from '../mixins/RemoteData';
 
 export default {
     mixins:[
-        RemoteData,
+        RemoteData({
+            questionList: 'questions'
+        }),
     ],
     data(){
         return {
