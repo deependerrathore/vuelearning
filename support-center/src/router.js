@@ -5,10 +5,12 @@ Vue.use(VueRouter);
 
 import Home from './components/Home.vue';
 import FAQ from './components/FAQ.vue';
+import Login from './components/Login.vue';
 
 const routes = [
     {path:'/',name:'home',component:Home},
-    {path:'/faq',name:'faq',component:FAQ}
+    {path:'/faq',name:'faq',component:FAQ},
+    {path:'/login',name:'login',component:Login}
 ]
 
 const router = new VueRouter({
