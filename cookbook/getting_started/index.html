@@ -9,10 +9,7 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="n in countDown">
-                {{n}}                
-            </li>
-            <li>Launch missile</li>
+            <li v-for="(animal,i) in animals">{{animal}} sounds {{sounds[i]}}</li>
         </ul>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -20,7 +17,8 @@
 var app = new Vue({
     el:'#app',
     data: {
-        countDown: [10,9,8,7,6,5,4,3,2,1]
+        animals: ['dog','cat','bird'],
+        sounds: ['woof','meow', 'tweet']
     }
 });
 </script>
