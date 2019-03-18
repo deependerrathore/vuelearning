@@ -8,7 +8,11 @@
 </head>
 <body>
     <div id="app">
-        {{msg + ' from 5 country'}}
+        <ul>
+            <li v-for="n in 4">
+                {{msg}}
+            </li>
+        </ul>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
