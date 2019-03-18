@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="n in [10,9,8,7,6,5,4,3,2,1]">
+            <li v-for="n in countDown">
                 {{n}}                
             </li>
             <li>Launch missile</li>
@@ -20,7 +20,7 @@
 var app = new Vue({
     el:'#app',
     data: {
-        msg: 'Hello World'
+        countDown: [10,9,8,7,6,5,4,3,2,1]
     }
 });
 </script>
